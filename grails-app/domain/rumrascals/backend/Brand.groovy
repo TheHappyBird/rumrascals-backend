@@ -4,6 +4,7 @@ class Brand {
 
     String name
     String description
+    String imageLink
 
     static belongsTo = [company: Company]
     static hasMany = [rums: Rum]

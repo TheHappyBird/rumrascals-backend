@@ -37,7 +37,7 @@ abstract class RRRestController<T> extends RestfulController<T> {
         render item as JSON
     }
 
-    protected def renderStatusWithMessage(HttpStatus status, String message) {
+    private def renderStatusWithMessage(HttpStatus status, String message) {
         println("Error: " + message)
         response.status = status.value()
         def map = [message: message]

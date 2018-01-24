@@ -4,6 +4,7 @@ class Rum {
 
     String name
     String description
+    String imageLink
     Country brewedInCountry
     int price
 

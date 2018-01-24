@@ -9,7 +9,7 @@ class BootStrap {
         def country4 = new Country(name: "Guatemala").save()
         def country5 = new Country(name: "Barbados").save()
         def country6 = new Country(name: "Trinidad").save()
-        def country7 = new Country(name: "Dom Rep.").save()
+        def country7 = new Country(name: "Dominican Republic").save()
         def country8 = new Country(name: "Colombia").save()
         def country9 = new Country(name: "Mauritius").save()
         def country10 = new Country(name: "Indien").save()
@@ -25,6 +25,7 @@ class BootStrap {
         def brand1 = new Brand(
                 name: "Brugal",
                 description: "A company",
+                imageLink: "http://cronistassocialesrd.com/sites/default/files/logo_brugal_fondo_azul.png",
                 company: company1
         ).save()
 
@@ -33,6 +34,7 @@ class BootStrap {
                 brand: brand1,
                 description: "This is a rum",
                 brewedInCountry: country7,
+                imageLink: "http://www.universalfws.com/images/Product/large/7460855252888.jpg",
                 price: 500
 
         ).save()
@@ -42,6 +44,7 @@ class BootStrap {
                 brand: brand1,
                 description: "This is also a rum",
                 brewedInCountry: country7,
+                imageLink: "http://www.scseleccion.com/image/cache/data/BRUGAL%20A%C3%91EJO%201L-500x500.jpg",
                 price: 269
         ).save()
 
@@ -50,29 +53,30 @@ class BootStrap {
                 brand: brand1,
                 description: "RUM!",
                 brewedInCountry: country7,
+                imageLink: "http://vinopolis.gi/uploads/images/medium/af22d0516bd456157d26d51db8fa2729.png",
                 price: 349
         ).save()
 
         def review1 = new Review(
                 title: "Cool review",
-                descriptin: "This is a review",
-                review: "Samma bäsksa som Añejo, men utan den agressiva alkoholsmaken. Mer komplex smak än både Añejo och Extra Viejo.",
+                description: "This is a review",
+                reviewText: "Samma bäsksa som Añejo, men utan den agressiva alkoholsmaken. Mer komplex smak än både Añejo och Extra Viejo.",
                 rating: 3.5,
                 rum: rum1
         ).save()
 
         def review2 = new Review(
                 title: "Cool review",
-                descriptin: "This is a review",
-                review: "En mer agressiv alkoholsmak än Extra Viejo. Mycket bäska. Luktar väldigt lik ",
+                description: "This is a review",
+                reviewText: "En mer agressiv alkoholsmak än Extra Viejo. Mycket bäska. Luktar väldigt lik ",
                 rating: 3.0,
                 rum: rum2
         ).save()
 
         def review3 = new Review(
                 title: "Rad review",
-                descriptin: "This is a review",
-                review: "Smooth med en ganska liten kick. Värmande effekt med en inte alltför brännande smak. Felix: Len men med en välkomnande kick. Skulle uppskattas framför en brasa, bra att ha med på fjällvnadringar. En Chill-rom.",
+                description: "This is a review",
+                reviewText: "Smooth med en ganska liten kick. Värmande effekt med en inte alltför brännande smak. Felix: Len men med en välkomnande kick. Skulle uppskattas framför en brasa, bra att ha med på fjällvnadringar. En Chill-rom.",
                 rating: 4.0,
                 rum: rum3
         ).save()
