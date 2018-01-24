@@ -16,22 +16,24 @@ abstract class RRRestController<T> extends RestfulController<T> {
         super(resource)
     }
 
+    @Override
     def index(Integer max) {
-        log.info("Fetching ${max ?: 'all'} ${resourceClassName}s")
         println("Fetching ${max ?: 'all'} ${resourceClassName}s")
         def list = resource.list(max: max)
+        header 'Access-Control-Allow-Origin', "*"
         render list as JSON
     }
 
-    def show(Long id) {
-        log.info("Show ${resourceClassName} $id")
-        println("Show ${resourceClassName} $id")
-        def item = resource.findById(id)
+    @Override
+    def show() {
+        println("Show ${resourceClassName} ${params.id}")
+        def item = resource.findById(params.id)
         if (item == null) {
-            renderStatusWithMessage(BAD_REQUEST, "No ${resourceClassName} found with id: $id")
+            renderStatusWithMessage(BAD_REQUEST, "No ${resourceClassName} found with id: ${params.id}")
             return
         }
 
+        header 'Access-Control-Allow-Origin', "*"
         render item as JSON
     }
 
