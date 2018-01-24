@@ -37,12 +37,44 @@ class BootStrap {
 
         ).save()
 
+        def rum2 = new Rum(
+                name: "Añejo",
+                brand: brand1,
+                description: "This is also a rum",
+                brewedInCountry: country7,
+                price: 269
+        ).save()
+
+        def rum3 = new Rum(
+                name: "Extra Viejo",
+                brand: brand1,
+                description: "RUM!",
+                brewedInCountry: country7,
+                price: 349
+        ).save()
+
         def review1 = new Review(
                 title: "Cool review",
                 descriptin: "This is a review",
                 review: "Samma bäsksa som Añejo, men utan den agressiva alkoholsmaken. Mer komplex smak än både Añejo och Extra Viejo.",
-                rating: 4.0,
+                rating: 3.5,
                 rum: rum1
+        ).save()
+
+        def review2 = new Review(
+                title: "Cool review",
+                descriptin: "This is a review",
+                review: "En mer agressiv alkoholsmak än Extra Viejo. Mycket bäska. Luktar väldigt lik ",
+                rating: 3.0,
+                rum: rum2
+        ).save()
+
+        def review3 = new Review(
+                title: "Rad review",
+                descriptin: "This is a review",
+                review: "Smooth med en ganska liten kick. Värmande effekt med en inte alltför brännande smak. Felix: Len men med en välkomnande kick. Skulle uppskattas framför en brasa, bra att ha med på fjällvnadringar. En Chill-rom.",
+                rating: 4.0,
+                rum: rum3
         ).save()
     }
     def destroy = {
