@@ -18,14 +18,17 @@ class Review {
     static {
         JSON.registerObjectMarshaller(Review) {
             [
-                    id         : it.id,
-                    title      : it.title,
-                    description: it.description,
-                    reviewText : it.reviewText,
-                    rating     : it.rating,
-                    rum        : it.rum,
-                    brand      : it.rum.brand.name,
-                    banner     : it.rum.brand.imageLink
+                    id                : it.id,
+                    title             : it.title,
+                    description       : it.description,
+                    reviewText        : it.reviewText,
+                    rating            : it.rating,
+                    rumName           : it.rum.name,
+                    rumImage          : it.rum.imageLink,
+                    rumBrewedInCountry: it.rum.brewedInCountry,
+                    rumPrice          : it.rum.price,
+                    brand             : it.rum.brand.name,
+                    banner            : it.rum.brand.imageLink
             ]
 
         }
