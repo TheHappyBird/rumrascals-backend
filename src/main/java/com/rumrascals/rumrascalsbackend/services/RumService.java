@@ -1,8 +1,8 @@
 package com.rumrascals.rumrascalsbackend.services;
 
+import com.rumrascals.rumrascalsbackend.Util.DomainConverter;
 import com.rumrascals.rumrascalsbackend.domain.CompanyRepository;
 import com.rumrascals.rumrascalsbackend.domain.RumRepository;
-import com.rumrascals.rumrascalsbackend.domain.dto.CompanyReturnDTO;
 import com.rumrascals.rumrascalsbackend.domain.dto.RumDTO;
 import com.rumrascals.rumrascalsbackend.domain.dto.RumReturnDTO;
 import com.rumrascals.rumrascalsbackend.domain.entities.Company;
@@ -20,11 +20,13 @@ public class RumService {
 
     private final RumRepository repository;
     private final CompanyRepository companyRepository;
+    private final DomainConverter domainConverter;
 
     @Autowired
     public RumService(RumRepository repository, CompanyRepository companyRepository) {
         this.repository = repository;
         this.companyRepository = companyRepository;
+        this.domainConverter = new DomainConverter();
     }
 
     public Long createRum(RumDTO dto) throws EntityNotFoundException {
@@ -78,28 +80,10 @@ public class RumService {
     public RumReturnDTO deleteRum(Long id) {
         Rum existingRum = repository.findById(id).get();
         repository.delete(existingRum);
-        return toDto(existingRum);
+        return domainConverter.toRumDto(existingRum);
     }
 
     private RumReturnDTO toDto(Rum rum) {
-        RumReturnDTO dto = new RumReturnDTO();
-        dto.id = rum.getId();
-        dto.name = rum.getName();
-        dto.description = rum.getDescription();
-        dto.year = rum.getYear();
-        dto.companyDTO = toCompanyDto(rum.getCompany());
-        return dto;
-    }
-
-    private CompanyReturnDTO toCompanyDto(Company company) {
-        if (company == null) return null;
-        CompanyReturnDTO dto = new CompanyReturnDTO();
-        dto.id = company.getId();
-        dto.name = company.name;
-        dto.description = company.description;
-        dto.foundedYear = company.foundedYear;
-        dto.country = company.country;
-
-        return dto;
+        return domainConverter.toRumDto(rum);
     }
 }
