@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/")
+@RequestMapping("api/v1/rum")
 public class RumController {
 
     private final RumService rumService;
@@ -19,28 +19,28 @@ public class RumController {
         this.rumService = rumService;
     }
 
-    @RequestMapping(value = "rums", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public long create(@RequestBody RumDTO rum) {
         return rumService.createRum(rum);
 
     }
 
-    @RequestMapping(value = "rums", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<RumReturnDTO> list() {
         return rumService.getAllRum();
     }
 
-    @RequestMapping(value = "rums/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public RumReturnDTO get(@PathVariable Long id) {
         return rumService.getRum(id);
     }
 
-    @RequestMapping(value = "rums/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     public long update(@PathVariable Long id, @RequestBody RumDTO rum) {
         return rumService.updateRum(id, rum);
     }
 
-    @RequestMapping(value = "rums/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public RumReturnDTO delete(@PathVariable Long id) {
         return rumService.deleteRum(id);
     }

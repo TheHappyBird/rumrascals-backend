@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/")
+@RequestMapping("api/v1/company")
 public class CompanyController {
 
 
@@ -20,27 +20,27 @@ public class CompanyController {
         this.service = service;
     }
 
-    @RequestMapping(value = "companies", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public long create(@RequestBody CompanyDTO dto) {
         return service.createCompany(dto);
     }
 
-    @RequestMapping(value = "companies", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<CompanyReturnDTO> list() {
         return service.getAllCompanies();
     }
 
-    @RequestMapping(value = "companies/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public CompanyReturnDTO get(@PathVariable Long id) {
         return service.getCompany(id);
     }
 
-    @RequestMapping(value = "companies/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     public long update(@PathVariable Long id, @RequestBody CompanyDTO dto) {
         return service.updateCompany(id, dto);
     }
 
-    @RequestMapping(value = "companies/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public CompanyReturnDTO delete(@PathVariable Long id) {
         return service.deleteCompany(id);
     }

@@ -1,6 +1,9 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.5.RELEASE'
+        springBootVersion = '2.2.0.RELEASE'
+        flywayVersion = '6.0.7'
+        swaggerVersion = '2.9.2'
+        springSecurityVersion = '5.1.2.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -18,7 +21,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.rumrascals'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 10
+sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
@@ -27,14 +30,13 @@ repositories {
 
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
-    compile('io.springfox:springfox-swagger2:2.9.0')
-    compile('io.springfox:springfox-swagger-ui:2.9.0')
-    compile('org.flywaydb:flyway-core:5.1.4')
-    compile('javax.xml.bind:jaxb-api:2.4.0-b180830.0359')
-    compile('org.springframework.security:spring-security-core:5.1.2.RELEASE')
-    
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    implementation("org.flywaydb:flyway-core:${flywayVersion}")
+    compile("io.springfox:springfox-swagger2:${swaggerVersion}")
+    compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
+    compile("javax.xml.bind:jaxb-api:2.4.0-b180830.0359")
+    compile("org.springframework.security:spring-security-core:${springSecurityVersion}")
 
     runtime('com.h2database:h2')
 
