@@ -22,7 +22,6 @@ public class RumService {
     private final CompanyRepository companyRepository;
     private final DomainConverter domainConverter;
 
-    @Autowired
     public RumService(RumRepository repository, CompanyRepository companyRepository) {
         this.repository = repository;
         this.companyRepository = companyRepository;

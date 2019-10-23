@@ -14,7 +14,6 @@ public class RumController {
 
     private final RumService rumService;
 
-    @Autowired
     public RumController(RumService rumService) {
         this.rumService = rumService;
     }
@@ -22,7 +21,6 @@ public class RumController {
     @RequestMapping(method = RequestMethod.POST)
     public long create(@RequestBody RumDTO rum) {
         return rumService.createRum(rum);
-
     }
 
     @RequestMapping(method = RequestMethod.GET)
